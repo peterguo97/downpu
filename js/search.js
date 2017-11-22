@@ -35,11 +35,53 @@ $(document).ready(function(){
             itemDetail();            
         },300);
     });
-    $(".search_result .item_name").on("click", ".material-icons",function() {
+    $(".search_result .item_name").on("click", ".material-icons",function(e) {
+        var result = [
+            {
+                name: "Matlab 2016a",
+                postTime: "2017 08 10",
+                discription: "MathWorks is the leading developer of mathematical computing software. Engineers ..",
+                links: [
+                    {
+                        name: "Matlab 2016a x86",
+                        link: "..."
+                    },
+                    {
+                        name: "Matlab 2016a 64",
+                        link: "..."
+                    }
+                ],
+            },
+            {
+                name: "Microsoft Word",
+                postTime: "2017 08 11",
+                discription: "Microsoft word is the best document editor in the world ..",
+                links: [
+                    {
+                        name: "Microsoft word 2017 x86",
+                        link: "..."
+                    },
+                    {
+                        name: "Microsoft word 2017 64",
+                        link: "..."
+                    }
+                ]
+            }
+        ];
+        var content1 = new String("");
+        var index = $(this).attr("index");
+        for (var i = 0; i < result[index].links.length; i++) {
+            content1 += '<li>';
+            content1 += '<span>' + result[index].links[i].name + '</span><a href="'+result[index].links[i].link +'" class="waves-effect waves-green btn-flat float_right">下载</a></div>';
+            content1 += '</li>';
+        };
+        $("#modal1 .modal-content ul").html(content1);
         $('.modal').fadeIn(500);
+
     })
     $(".modal").on("click",".modal-close",function() {
         $('#modal1').fadeOut(500);
+        $("#modal1 .modal-content ul li").remove(); //清除dom
     })
     $("body > .item .backTolist").on("click",function(){
         $("body > .item").css({
@@ -68,7 +110,11 @@ $(document).ready(function(){
 //            |---search_result.postTime
 //            |---search_result.discription
 //            |---search_result.links
-//
+//            |---search.file
+//                  |
+//                  |---search.file.links[{name,fileURL},{name,fileURL}]
+
+
 function listResult(search_result) {
     //example
     search_result = [
@@ -85,6 +131,9 @@ function listResult(search_result) {
                     name : "Matlab 2016a 64" ,
                     link : "..."
                 }
+            ],
+            url : [
+
             ]
         },
         {
@@ -119,11 +168,12 @@ function listResult(search_result) {
     //console.log(result);
     var content = new String("");
     for (var i = 0 ; i < result.length ; i++) {
-        content += '<li>' ;
-        content += '<div class="item_name"><span class="item">'+result[i].name+'</span><i class="material-icons float_right">file_download</i></div>';
+        content += '<li>';
+        content += '<div class="item_name"><span class="item">' + result[i].name + '</span><i class="material-icons float_right"  index = "'+ i +'">file_download</i></div>';
         content += '<div class="item_postTime">'+result[i].postTime+'</div>';
         content += '<div class="item_discription">'+result[i].discription+'</div>';
         content += '</li>';
+
     };
 
     $(".search_list > .search_result > ul").html(content).hide().slideDown();
