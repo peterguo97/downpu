@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title id="webTitle">文件管理</title>
+	<link rel="stylesheet" href="css/reset.css" />
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<link rel="stylesheet" href="css/materialize.css" />
+  <link rel="stylesheet" href="css/list.css">
+</head>
+<body>
+
+<!-- 头部logo 开始 -->
+<div class="banner">
+  <div class="banner-body">
+    <div class="banner-left">
+      <div class="banner-logo">Down 铺</div>
+      <div class="banner-title">列表页</div>
+    </div>
+  </div>
+</div>
+<!-- 头部logo 结束 -->
+
+<div class="container">
+  <div class="row">
+    <div class="input_area">
+      <input type="text" />
+      <i class="material-icons">search</i>
+    </div>
+  </div>
+  <table class="highlight centered">
+  	<thead id="list">
+      <tr>
+      	<th>Name</th>
+        <th>Src</th>
+        <th>alter|delete</th>
+      </tr>
+    </thead>
+    <tbody>
+    </tbody>
+  </table>
+  <ul class="pagination">
+    <li class="disabled"><a href="#!"><i class="material-icons">chevron_left</i></a></li>
+    <li class="active"><a href="#!">1</a></li>
+    <li class="waves-effect"><a href="#!">2</a></li>
+    <li class="waves-effect"><a href="#!">3</a></li>
+    <li class="waves-effect"><a href="#!">4</a></li>
+    <li class="waves-effect"><a href="#!">5</a></li>
+    <li class="waves-effect"><a href="#!">6</a></li>
+    <li class="waves-effect"><a href="#!">7</a></li>
+    <li class="waves-effect"><a href="#!">8</a></li>
+    <li class="waves-effect"><a href="#!"><i class="material-icons">chevron_right</i></a></li>
+  </ul>
+</div>
+<script src="jQuery/jquery-3.2.1.min.js"></script>
+<script src="js/materialize.js"></script>
+<script src="js/getdata.js"></script>
+<script src="js/list.js"></script>
+<script type="text/javascript">
+  $(document).ready(function(){
+    $('.modal').modal();
+  });
+</script>
+</body>
+</html>
