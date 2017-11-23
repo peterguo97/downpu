@@ -106,7 +106,7 @@ function thumbnails(url) {
 //                |
 //                |---option.file.link[{name,fileURL},{name,fileURL},...]
 
-function addPost(option) {
+function addPost() {
 
 	//渲染表格
 	$(".background-mask").css({
