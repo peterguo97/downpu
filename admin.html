@@ -32,10 +32,10 @@
 	</div>
 
 	<div class="background-mask">
-		<form class="card" enctype="multipart/form-data">
+		<form class="card" action="" method="post" enctype="multipart/form-data">
 			<div class="card-content white-text">
 				<span class="card-title">
-					<input type="text" placeholder="标题"/>
+					<input type="text" name="appName" placeholder="标题"/>
 				</span>
 				<!-- Dropdown Trigger -->
 				<div class='dropdown-button btn' data-activates='dropdown1' data-category="0">类 别</div>
@@ -46,7 +46,7 @@
 
 					<!-- End -->
 				</ul>
-				<div class="input" contenteditable placeholder="请输入软件的描述简介"></div> 
+				<textarea id="description" class="input" name="description" placeholder="请输入软件的描述简介"></textarea>
 				<div class="card-photos">
 					<span style="color:#747474;display:none;float:right;padding-top:80px;"><span class="photos_count">0</span> / 3</span>
 				</div>
@@ -56,8 +56,18 @@
 					<i class="material-icons select_image">insert_photo</i>
 				</a>
 				<div class="con">
-					<a><i class="material-icons select_fileURL">insert_link</i></a>
-					<input type="file" id="upload" name="app" />
+					<div class="image_upload">
+						<a><i class="material-icons select_fileURL">insert_link</i></a>
+						<input type="file" class="upload" name="image" />
+					</div>
+					<div class="image_upload">
+						<a><i class="material-icons select_fileURL">insert_link</i></a>
+						<input type="file" class="upload" name="image" />
+					</div>
+					<div class="image_upload">
+						<a><i class="material-icons select_fileURL">insert_link</i></a>
+						<input type="file" class="upload" name="image" />
+					</div>
 				</div>
 				<div class="fileList collection"></div>
 				<div class="button">
@@ -75,11 +85,9 @@
 	</div>
 
 </body>
-
 <script src="jQuery/jquery-3.2.1.min.js"></script>
 <script src="js/jq.form.min.js"></script>
 <script src="js/materialize.js"></script>
 <script src="js/waterFall.js"></script>
 <script src="js/admin.js"></script>
-
 </html>

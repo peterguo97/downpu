@@ -52,18 +52,25 @@ body {
 
 }
 
-.con{
+.con .image_upload{
 	width: 24px;
-	height: 19px;
+	height: 20px;
 	position: relative;
+	float: left;
 }
-#upload {
+
+#description{
+	resize: none;
+	border: 0px;
+}
+.upload {
 opacity: 0;
 position: absolute;
 left: 0;
 top: 0;
 z-index: 10;
 }
+
 .list {
 	overflow: hidden;
 	margin: auto 0;

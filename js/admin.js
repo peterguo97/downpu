@@ -1,8 +1,6 @@
 $(document).ready(function(){
-
 	//瀑布式布局
 	$('.scrollspy').scrollSpy();
-
 	//上传图片前，图片预览
 	$(".background-mask > .card > .upload_image").on("change" , function(){
 		var files = !!this.files ? this.files : [];
@@ -31,8 +29,6 @@ $(document).ready(function(){
 
 	//形成软件类别列表
 	getCategoryList();
-
-
 	//软件类别选择
 	$(".card #dropdown1 > li").click(function(){
 		var category = $(this).text();
@@ -40,61 +36,15 @@ $(document).ready(function(){
 		$(this).parent().prev().text(category).attr("data-category", data_category);
 	});//软件类别选择
 
-	//删除已添加的文件的点击事件
-	$(".background-mask .card .card-action .fileList").on("click",".item-delete",function(){
-		$(this).css({
-			"width" : "100%" 
-		});
-		$(this).parent().css({
-			"opacity" : "0",
-			"height" : "0" 
-		}).attr("data-url","remove");
-		keepCardMiddle(30);
-	});//删除已添加的文件的点击事件
-
 	//上传图片按钮的点击事件
 	$(".background-mask .card .card-action").on("click",".select_image",function(){
 		$(".upload_image").click();
 	});//上传图片按钮的点击事件
 
 	//添加文件按钮的点击事件
-	$(".background-mask .card .card-action").on("click",".con",function(){
-		var subName = $(".card-title input").val();
-		fileAdded(subName);
-	});//添加文件按钮的点击事件
-	$("#btn-submit").on('click',function(){
-		var k1 = check();
-		if(!k1){
-			alert("信息录入不全");
-			return;
-		}
-		if(k1){
-			$(".card").ajaxSubmit({
-				success: function(data) {
-					console.log('success');
-				},
-				error: function(error) {
-					console.log(error);
-				},
-				url: '',
-				type: "post"
-			});
-		}
-	})
+	
 });
 
-//检查是否为空
-function check() {
-	var key = true;
-	var input_val = $('.card input');
-	for(var i=0;i<input_val.length;i++){
-		console.log(input_val[i].val());
-		if(!input_val[i].val()){
-			key = false;
-		}
-	}
-	return key;
-}
 //判断是否达到上传图片的上限
 function isAbleUploadImage() {
 	var photos_limit = 3;
@@ -104,7 +54,6 @@ function isAbleUploadImage() {
 		img_path.find(".photos_count").css("color","#e66e65");
 		$(".background-mask").find(".upload_image").attr("disabled","true");
 		$(".background-mask").find(".select_image").css("color","#747474");
-
 	}
 	else {
 		img_path.find(".photos_count").css("color","#747474");
@@ -141,17 +90,6 @@ function thumbnails(url) {
 //添加文件链接时，生成文件列表
 //@param file_name (string格式)
 //@param file_url (string格式)
-//
-function fileAdded(file_name) {
-	var item_path = $(".background-mask > .card > .card-action > .fileList");
-		item = '<div class="item collection-item" data-name="'+file_name+'">'+
-			'<div class="item-name">'+file_name+'</div>'+
-			'<div class="item-edit"><i class="material-icons">edit</i></div>'+
-			'<div class="item-delete"><i class="material-icons">delete</i></div>'+
-		'</div>';
-	item_path.append(item);
-	keepCardMiddle();
-}//判断是否达到上传图片的上限
 
 
 //初始化文件编辑界面
