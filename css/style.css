@@ -184,6 +184,7 @@ body {
 }
 
 .page-footer {
+	text-align: center;
 	clear: both;
 	background-color: #eee!important;
 	color: #777!important;

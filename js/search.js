@@ -101,6 +101,20 @@ $(document).ready(function(){
             })
         },500)
     });
+    $("#form-btn").click(function() {
+        var val = $("#textarea1").val();
+        Materialize.toast('提交成功!', 4000);
+        /*$.ajax({
+            url: '',
+            type:'POST',
+            data: '',
+        }).done(function(res) {
+            if(1){
+                Materialize.toast('提交成功!', 4000)
+            }
+        })*/
+        
+    })
 });
 
 //罗列搜索结果
